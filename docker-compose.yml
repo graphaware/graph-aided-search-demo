@@ -1,0 +1,35 @@
+web:
+  build: ./app
+  restart: always
+  links:
+    - neo4j
+    - elastic
+  volumes:
+    - ./app:/usr/src/app
+  environment:
+    - DB_HOST=http://neo4j:7474
+    - ES_HOST=http://elastic:9200
+neo4j:
+  restart: always
+  image: neo4j:2.3.2-enterprise
+  links:
+    - elastic
+  environment:
+    - NEO4J_AUTH=none
+    #- NEO4J_THIRDPARTY_JAXRS_CLASSES="com.graphaware.server=/graphaware"
+    - ES_HOSTS_URL="http://elastic:9200"
+  volumes:
+    - ./neo4j/conf:/conf
+    - ./neo4j/plugins:/plugins
+    - ./neo4j/data:/data
+  ports:
+    - "7474:7474"
+elastic:
+  image: elasticsearch:2.2.1
+  restart: always
+  ports:
+    - "9200:9200"
+  volumes:
+    - ./esdata:/data
+    - ./elastic/plugins:/plugins
+    - ./elastic/conf:/usr/share/elasticsearch/config
