@@ -1,0 +1,14 @@
+{
+  "size": 3,
+   "query" : {
+       "bool": {
+         "should": [{"match": {"title": "love"}}]
+       }
+   },
+   "gas-filter" :{
+        "name": "SearchResultCypherFilter",
+        "query": "MATCH (n:User {objectId: 12})-[r:LIKES]->(m) RETURN m.objectId as id",
+        "exclude": true,
+        "keyProperty": "objectId"
+   }
+}

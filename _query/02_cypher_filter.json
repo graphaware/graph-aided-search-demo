@@ -1,0 +1,14 @@
+{
+  "size": 3,
+  "query" : {
+      "bool": {
+        "should": [{"match": {"title": "love"}}]
+      }
+  },
+  "gas-filter" :{
+      "name": "SearchResultCypherFilter",
+      "query": "MATCH (n:User)-[r:LIKES]->(m) WITH m, avg(r.rate) as avg_rate where avg_rate < 3 RETURN m.objectId as id",
+      "exclude": true,
+      "keyProperty": "objectId"
+  }
+}

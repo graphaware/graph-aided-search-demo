@@ -1,3 +1,3 @@
 app/vendor/
 neo4j/data
-*/.DS_Store
+.DS_Store

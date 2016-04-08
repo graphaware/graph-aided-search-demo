@@ -1,0 +1,8 @@
+{
+  "size": 3,
+  "query" : {
+      "bool": {
+        "should": [{"match": {"title": "love"}}]
+      }
+  }
+}

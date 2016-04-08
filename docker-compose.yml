@@ -13,7 +13,7 @@ neo4j:
   ports:
     - "7474:7474"
 elastic:
-  image: elasticsearch:2.2.1
+  image: elasticsearch:2.2.2
   restart: always
   net: ${NETWORK}
   container_name: elastic_container
