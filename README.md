@@ -75,7 +75,7 @@ ikwattro@graphaware ~>  curl -XPUT 'http://localhost:9200/neo4j-index/' -d '{
 >         "index.gas.enable" : true
 >     }
 > }'
-{"acknowledged":true}}                                                                                                                                                                           ikwattro@graphaware ~>
+{"acknowledged":true}                                                                                                                                                                           ikwattro@graphaware ~>
 ```
 
 #### Add the schema constraints in Neo4j
