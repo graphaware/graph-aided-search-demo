@@ -23,5 +23,6 @@ elastic:
     - ./esdata:/data
     - ./elastic/plugins:/plugins
     - ./elastic/conf:/usr/share/elasticsearch/config
+    - ./elastic/scripts:/usr/share/elasticsearch/config/scripts
   environment:
     - neo4j="http://neo4j"
