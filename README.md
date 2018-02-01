@@ -60,12 +60,22 @@ Neo4j will be available on your docker host ip (generally `localhost` on Linux a
 #### Configure the plugin settings
 
 ```bash
-curl -XPUT http://192.168.99.100:9200/neo4j-index/_settings?index.gas.neo4j.hostname=http://localhost:7474&index.gas.enable=true
+curl -XPUT 'http://localhost:9200/neo4j-index/' -d '{
+    "settings" : {
+        "index.gas.neo4j.hostname" : "http://localhost:7474",
+        "index.gas.enable" : true
+    }
+}'
 ```
 
 ```bash
-ikwattro@graphaware ~> curl -XPUT "http://192.168.99.100:9200/neo4j-index/_settings?index.gas.neo4j.hostname=http://localhost:7474&index.gas.enable=true"
-{"acknowledged":true}~                                                                                                                                                                                 ikwattro@graphaware ~>
+ikwattro@graphaware ~>  curl -XPUT 'http://localhost:9200/neo4j-index/' -d '{
+>     "settings" : {
+>         "index.gas.neo4j.hostname" : "http://localhost:7474",
+>         "index.gas.enable" : true
+>     }
+> }'
+{"acknowledged":true}                                                                                                                                                                           ikwattro@graphaware ~>
 ```
 
 #### Add the schema constraints in Neo4j
